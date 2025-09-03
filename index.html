@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aluminum Systems - Rayfitout</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            background-color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1350px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            position: absolute;
+            top: 30px;
+            left: 0;
+            width: 100%;
+            color: #fff;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .header-content {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 43px;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: 700;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 101;
+        }
+
+        .menu-toggle .bar {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: #fff;
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        nav ul li {
+            font-size: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero {
+            height: 100vh;
+            background-image: url('assets/images/header.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: #fff;
+            text-align: left;
+            position: relative;
+        }
+    
+        .hero-text {
+            position: absolute;
+            bottom: 25%;
+            left: 43px;
+            color: #fff;
+        }
+    
+        .hero h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.26;
+            margin: 0;
+            padding: 0;
+            white-space: nowrap;
+            text-transform: uppercase;
+            width: 254px;
+    height: 20px;
+    top: 642px;
+    left: 43px;
+        }
+    
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            font-size: 50px;
+            text-transform: uppercase;
+            line-height: 1.2;
+            margin-top: 10px;
+            margin-bottom: 0;
+            padding: 0;
+        }
+    
+        .hero p {
+            font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1;
+        }
+        
+        /* Rest of the CSS styles are the same as before */
+
+        .description {
+            padding: 60px 0;
+            text-align: center;
+        }
+    
+        .description p {
+            font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1;
+    text-align: justify;
+        }
+        .description-line {
+    width: 100%;
+    max-width: 1453px; /* A max-width is used for larger screens */
+    height: 1px; /* The height is set to 1px to create a thin line */
+    background-color: #ddd; /* Example color for the line */
+    margin: 40px auto; /* Centered with a margin above and below */
+    opacity: 1; /* Default opacity */
+    /* The positional properties 'top' and 'left' are not used
+    to maintain a responsive layout. The line will be placed
+    in the document flow after the description section. */
+}
+    
+        .systems {
+            padding: 60px 0;
+            background-color: #f8f8f8;
+        }
+    
+        .systems h2 {
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+    
+        .systems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+    
+        .system-item {
+            text-align: center;
+        }
+    
+        .system-item img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+    
+        .system-item img:hover {
+            transform: scale(1.05);
+        }
+    
+        .system-item h3 {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+    
+        .features {
+            padding: 60px 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+    
+        .feature-item {
+            text-align: center;
+        }
+    
+        .feature-item img {
+            width: 100%;
+            height: auto;
+        }
+    
+        .feature-item h3 {
+            font-size: 20px;
+        }
+    
+        .about {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+    
+        .about h2 {
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+    
+        .about-grid {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+        }
+    
+        .about-item {
+            flex: 1;
+        }
+    
+        .about-item h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+    
+        .about-item p {
+            font-size: 16px;
+        }
+    
+        .bespoke {
+            height: 60vh;
+            background-image: url('https://placehold.co/1920x600?text=Bespoke+Image');
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: #fff;
+            text-align: left;
+            padding: 0 20px;
+        }
+    
+        .bespoke h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+    
+        .bespoke button {
+            background-color: transparent;
+            border: 1px solid #fff;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+    
+        .bespoke button:hover {
+            background-color: #fff;
+            color: #000;
+        }
+    
+        .images-row {
+            display: flex;
+            gap: 20px;
+            padding: 60px 0;
+        }
+    
+        .images-row img {
+            width: 50%;
+            height: auto;
+        }
+    
+        .recyclable {
+            display: flex;
+            align-items: center;
+            padding: 60px 0;
+            background-color: #f8f8f8;
+        }
+    
+        .recyclable-text {
+            flex: 1;
+            padding: 0 20px;
+        }
+    
+        .recyclable-text h2 {
+            font-size: 28px;
+            text-transform: uppercase;
+        }
+    
+        .recyclable img {
+            flex: 1;
+            width: 50%;
+            height: auto;
+        }
+    
+        .view-projects {
+            text-align: center;
+            padding: 20px 0;
+        }
+    
+        .view-projects a {
+            font-size: 18px;
+            border: 1px solid #000;
+            padding: 10px 20px;
+            transition: background-color 0.3s;
+        }
+    
+        .view-projects a:hover {
+            background-color: #000;
+            color: #fff;
+        }
+    
+        .cta {
+            padding: 60px 0;
+            text-align: center;
+            background-color: #fff;
+        }
+    
+        .cta h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+    
+        .cta button {
+            background-color: #000;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+    
+        .faq {
+            padding: 60px 0;
+        }
+    
+        .faq h2 {
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+    
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+    
+        .faq-item h3 {
+            font-size: 20px;
+            cursor: pointer;
+        }
+    
+        .faq-item p {
+            display: none;
+            font-size: 16px;
+        }
+    
+        .other-services {
+            padding: 60px 0;
+            background-color: #f8f8f8;
+        }
+    
+        .other-services h2 {
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+    
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+    
+        .service-item {
+            text-align: center;
+        }
+    
+        .service-item img {
+            width: 100%;
+            height: auto;
+        }
+    
+        .service-item h3 {
+            font-size: 20px;
+        }
+    
+        .footer-cta {
+            padding: 60px 0;
+            text-align: center;
+            color: #000;
+        }
+    
+        .footer-cta h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+    
+        .footer-cta p {
+            font-size: 24px;
+        }
+    
+        .footer-cta button {
+            background-color: transparent;
+            border: 1px solid #000;
+            padding: 10px 20px;
+            margin-top: 20px;
+        }
+    
+        .locations {
+            display: flex;
+            justify-content: space-around;
+            padding: 40px 0;
+            border-top: 1px solid #ddd;
+        }
+    
+        .location {
+            text-align: center;
+        }
+    
+        .location h4 {
+            font-size: 18px;
+        }
+    
+        .location p {
+            font-size: 14px;
+        }
+    
+        .inquiries {
+            display: flex;
+            justify-content: space-around;
+            padding: 40px 0;
+        }
+    
+        .inquiry {
+            text-align: center;
+        }
+    
+        .inquiry h4 {
+            font-size: 16px;
+        }
+    
+        .inquiry p {
+            font-size: 14px;
+        }
+    
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid #ddd;
+        }
+    
+        .social {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+        }
+    
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+    
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    
+        nav ul li:hover {
+            color: #ccc;
+            transition: color 0.3s ease;
+        }
+    
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 20px;
+            }
+    
+            .logo {
+                font-size: 24px;
+            }
+    
+            .menu-toggle {
+                display: flex;
+            }
+    
+            nav {
+                position: fixed;
+                top: 0;
+                right: 0;
+                height: 100vh;
+                width: 70%;
+                background-color: rgba(0, 0, 0, 0.9);
+                transform: translateX(100%);
+                transition: transform 0.3s ease-in-out;
+                padding-top: 100px;
+            }
+    
+            nav.active {
+                transform: translateX(0);
+            }
+    
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+                text-align: center;
+            }
+    
+            nav ul li {
+                font-size: 18px;
+            }
+    
+            .menu-toggle.active .bar:nth-child(1) {
+                transform: translateY(11px) rotate(45deg);
+            }
+    
+            .menu-toggle.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+    
+            .menu-toggle.active .bar:nth-child(3) {
+                transform: translateY(-11px) rotate(-45deg);
+            }
+    
+            .hero h1 {
+                font-size: 32px;
+            }
+    
+            .hero p {
+                font-size: 18px;
+            }
+    
+            .features {
+                grid-template-columns: 1fr;
+            }
+    
+            .about-grid {
+                flex-direction: column;
+            }
+    
+            .images-row {
+                flex-direction: column;
+            }
+    
+            .images-row img {
+                width: 100%;
+            }
+    
+            .recyclable {
+                flex-direction: column;
+            }
+    
+            .recyclable img {
+                width: 100%;
+            }
+    
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+    
+            .locations {
+                flex-direction: column;
+            }
+    
+            .inquiries {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">Rayfitout</div>
+            <button class="menu-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav>
+                <ul>
+                    <li>Projects</li>
+                    <li>Services</li>
+                    <li>Systems</li>
+                    <li>Products</li>
+                    <li>About</li>
+                    <li>Contact</li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero animate-on-scroll">
+        <div class="hero-text">
+            <h3>SERVICES / ALUMINIUM SYSTEMS</h3>
+            <h1>ALUMINUM SYSTEMS</h1>
+            <p>CONTEMPORARY SYSTEMS, SEAMLESS INTEGRATION</p>
+        </div>
+    </section>
+
+    <section class="description animate-on-scroll">
+        <div class="container">
+            <p>Our aluminum joinery collection is designed not merely as functional elements, but as architectural statements. Every door, partition, and wardrobe system reflects a deliberate interplay of proportion, material, and technology—where nothing is exposed, yet everything is experienced. Our aluminum joinery collection is designed not merely as functional elements, but as architectural statements. Every door, partition, and wardrobe system reflects a deliberate interplay of proportion, material, and technology—where nothing is exposed, yet everything is experienced. Our aluminum joinery collection is designed not merely as functional elements, but as architectural statements. Every door, partition, and wardrobe system reflects a deliberate interplay of proportion, material, and technology—where nothing is exposed, yet everything is experienced.</p>
+        </div>
+    </section>
+
+    <section class="systems animate-on-scroll">
+        <div class="container">
+            <h2>OUR ALUMINIUM SYSTEMS</h2>
+            <p>Expert craftsmanship in aluminium systems, offering fit your unique space.</p>
+            <div class="systems-grid">
+                <div class="system-item">
+                    <img src="https://placehold.co/300x200?text=Doors" alt="Doors">
+                    <h3>Doors</h3>
+                </div>
+                <div class="system-item">
+                    <img src="https://placehold.co/300x200?text=Windows" alt="Windows">
+                    <h3>Windows</h3>
+                </div>
+                <div class="system-item">
+                    <img src="https://placehold.co/300x200?text=Partitions" alt="Partitions">
+                    <h3>Partitions</h3>
+                </div>
+                <div class="system-item">
+                    <img src="https://placehold.co/300x200?text=Pergolas" alt="Pergolas">
+                    <h3>Pergolas</h3>
+                </div>
+                <div class="system-item">
+                    <img src="https://placehold.co/300x200?text=Bullet+Resistant+Windows" alt="Bullet Resistant Windows">
+                    <h3>Bullet Resistant Windows</h3>
+                </div>
+                <div class="system-item">
+                    <img src="https://placehold.co/300x200?text=Curtain+Walls+%26+Facades" alt="Curtain Walls & Facades">
+                    <h3>Curtain Walls & Facades</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features animate-on-scroll">
+        <div class="container">
+            <div class="feature-item">
+                <img src="https://placehold.co/400x300?text=Modern+Profiles" alt="Modern Profiles">
+                <h3>modern profiles</h3>
+            </div>
+            <div class="feature-item">
+                <img src="https://placehold.co/400x300?text=Integration" alt="Integration">
+                <h3>integration</h3>
+            </div>
+            <div class="feature-item">
+                <img src="https://placehold.co/400x300?text=Modularity" alt="Modularity">
+                <h3>modularity</h3>
+            </div>
+        </div>
+    </section>
+
+    <section class="about animate-on-scroll">
+        <div class="container">
+            <h2>About Our Products & Services</h2>
+            <div class="about-grid">
+                <div class="about-item">
+                    <h3>Complimentary Installation</h3>
+                    <p>We offer complimentary professional installation by our in-house technicians to ensure flawless execution on every project.</p>
+                </div>
+                <div class="about-item">
+                    <h3>Made-to-Measure Architecture</h3>
+                    <p>Every system is precisely fabricated to its environment. No gaps, no compromises—only bespoke precision.</p>
+                </div>
+                <div class="about-item">
+                    <h3>Patented Designs</h3>
+                    <p>Our systems are designed to be embedded in the architecture—not added onto it. They align perfectly with joinery, wall cladding, and interior finishes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bespoke animate-on-scroll">
+        <div class="container">
+            <h2>BESPOKE SYSTEMS,<br>CUSTOM MADE FOR YOUR SPACE</h2>
+            <button>DROP AN INQUIRY</button>
+        </div>
+    </section>
+
+    <section class="images-row animate-on-scroll">
+        <div class="container">
+            <img src="https://placehold.co/600x400?text=Aluminum+Image+1" alt="Aluminum Image 1">
+            <img src="https://placehold.co/600x400?text=Aluminum+Image+2" alt="Aluminum Image 2">
+        </div>
+    </section>
+
+    <section class="recyclable animate-on-scroll">
+        <div class="recyclable-text container">
+            <h2>Unlike plastics, it is 100% recyclable. Moreover, approximately 70% of the aluminum produced from 1988 is still in use.</h2>
+        </div>
+        <img src="https://placehold.co/600x400?text=Recycling+Image" alt="Recycling Image">
+    </section>
+
+    <section class="view-projects animate-on-scroll">
+        <a href="#">VIEW PROJECTS →</a>
+    </section>
+
+    <section class="cta animate-on-scroll">
+        <div class="container">
+            <h2>HAVE A PROJECT IN MIND ?</h2>
+            <button>DROP AN INQUIRY →</button>
+        </div>
+    </section>
+
+    <section class="faq animate-on-scroll">
+        <div class="container">
+            <h2>FREQUENTLY ASKED QUESTIONS</h2>
+            <div class="faq-item">
+                <h3>What is interior fit out?</h3>
+                <p>Interior fit out is the process of modifying a bare shell of a structure into a functional space. This typically involves: installing partition walls, flooring, ceiling, fittings and furniture fixtures.</p>
+            </div>
+            <div class="faq-item">
+                <h3>What do interior fit out companies in Dubai do?</h3>
+                <p>[Content here]</p>
+            </div>
+            <div class="faq-item">
+                <h3>How long does an interior fit out typically take?</h3>
+                <p>[Content here]</p>
+            </div>
+            <div class="faq-item">
+                <h3>What is the scope of the interior fit out?</h3>
+                <p>[Content here]</p>
+            </div>
+            <div class="faq-item">
+                <h3>How much does an interior fit out cost?</h3>
+                <p>[Content here]</p>
+            </div>
+            <div class="faq-item">
+                <h3>What countries does Rayfitout operate in?</h3>
+                <p>[Content here]</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="other-services animate-on-scroll">
+        <div class="container">
+            <h2>OTHER SERVICES</h2>
+            <div class="services-grid">
+                <div class="service-item">
+                    <img src="https://placehold.co/400x300?text=Interior+Fit+Out" alt="Interior Fit Out">
+                    <h3>INTERIOR FIT OUT</h3>
+                </div>
+                <div class="service-item">
+                    <img src="https://placehold.co/400x300?text=Interior+Design" alt="Interior Design">
+                    <h3>INTERIOR DESIGN</h3>
+                </div>
+                <div class="service-item">
+                    <img src="https://placehold.co/400x300?text=Architecture+Design" alt="Architecture Design">
+                    <h3>ARCHITECTURE DESIGN</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="footer-cta animate-on-scroll">
+        <div class="container">
+            <h2>IDEAS COME TO LIFE<br>WITH CONVERSATION.</h2>
+            <p>INFO@RAYFITOUT.COM</p>
+            <button>DROP AN INQUIRY</button>
+        </div>
+    </section>
+
+    <section class="locations">
+        <div class="location">
+            <h4>DUBAI, UAE</h4>
+            <p>23, ST 35,AL QUSAIS 5<br>DUBAI, UAE<br>+971 800 729 43</p>
+        </div>
+        <div class="location">
+            <h4>RIYADH, SAUDI ARABIA</h4>
+            <p>LEVEL 6, GATE D, AL AKARIA PLAZA, RIYADH SAUDI ARABIA.<br>+ 966 800 891 2050</p>
+        </div>
+        <div class="location">
+            <h4>NAIROBI, KENYA</h4>
+            <p>OFFICE 2504, BRITAM TOWER, HOSPITAL HILL ROAD, UPPERHILL, KENYA<br>+254 2076 40228</p>
+        </div>
+    </section>
+
+    <section class="inquiries">
+        <div class="inquiry">
+            <h4>BUSINESS INQUIRIES</h4>
+            <p>INFO@RAYFITOUT.COM</p>
+        </div>
+        <div class="inquiry">
+            <h4>CAREER</h4>
+            <p>HR@RAYFITOUT.COM</p>
+        </div>
+        <div class="inquiry">
+            <h4>SUPPLIERS</h4>
+            <p>PROCUREMENT@RAYFITOUT.COM</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>PRIVACY POLICY<br>© 2025 RAYFITOUT</p>
+        <div class="social">
+            <a href="#">YOUTUBE</a>
+            <a href="#">PINTEREST</a>
+        </div>
+    </footer>
+
+    <script>
+        const elements = document.querySelectorAll('.animate-on-scroll');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        elements.forEach(el => observer.observe(el));
+
+        const faqHeaders = document.querySelectorAll('.faq-item h3');
+        faqHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                content.style.display = content.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('nav');
+
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
