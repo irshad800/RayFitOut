@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aluminum Systems - Rayfitout</title>
+    <title>Rayfitout</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <style>
         /* Animation Keyframes */
@@ -39,7 +38,7 @@
         body {
             margin: 0;
             font-family: 'Montserrat', sans-serif;
-color: #333;
+            color: #333;
             background-color: #fff;
             position: relative;
             min-height: 100vh;
@@ -346,34 +345,34 @@ color: #333;
         }
 
         .features {
-    padding: 60px 0;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Ensures three columns in one row */
-    gap: 20px;
-    max-width: 1350px; /* Match container max-width */
-    margin: 0 auto; /* Center the grid */
-}
+            padding: 60px 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Ensures three columns in one row */
+            gap: 20px;
+            max-width: 1350px; /* Match container max-width */
+            margin: 0 auto; /* Center the grid */
+        }
 
-.feature-item {
-    text-align: center;
-    width: 100%; /* Ensure each item takes full width of its grid cell */
-}
+        .feature-item {
+            text-align: center;
+            width: 100%; /* Ensure each item takes full width of its grid cell */
+        }
 
-.feature-item img {
-    width: 100%;
-    height: auto;
-}
+        .feature-item img {
+            width: 100%;
+            height: auto;
+        }
 
-.feature-item h3 {
-    font-size: 20px;
-}
+        .feature-item h3 {
+            font-size: 20px;
+        }
 
-/* Ensure single row on smaller screens */
-@media (max-width: 768px) {
-    .features {
-        grid-template-columns: 1fr; /* Stack items vertically on small screens */
-    }
-}
+        /* Ensure single row on smaller screens */
+        @media (max-width: 768px) {
+            .features {
+                grid-template-columns: 1fr; /* Stack items vertically on small screens */
+            }
+        }
 
         .about {
             padding: 60px 0;
@@ -650,6 +649,49 @@ color: #333;
             transition: color 0.3s ease;
         }
 
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loading-overlay .logo {
+            font-size: 48px; /* Larger for desktop */
+            font-weight: 700;
+            color: #000;
+        }
+
+        .main-content {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .main-content.loaded {
+            opacity: 1;
+        }
+
+        .logo {
+            z-index: 10000;
+        }
+
+        header {
+            z-index: 10001;
+        }
+
+        /* Mobile Responsive Styles */
         @media (max-width: 768px) {
             .header-content {
                 padding: 20px;
@@ -710,6 +752,11 @@ color: #333;
                 font-size: 18px;
             }
 
+            .hero-text {
+                left: 20px;
+                bottom: 15%;
+            }
+
             .features {
                 grid-template-columns: 1fr;
             }
@@ -745,336 +792,336 @@ color: #333;
             .inquiries {
                 flex-direction: column;
             }
+
+            .systems-grid {
+                grid-template-columns: 1fr;
+                position: static;
+                min-height: auto;
+            }
+
+            .system-item img {
+                position: static;
+                width: 100%;
+                height: auto;
+            }
+
+            .system-item h3 {
+                position: static;
+                width: 100%;
+                margin-top: 10px;
+                text-align: center;
+            }
+
+            .loading-overlay .logo {
+                font-size: 32px; /* Smaller for mobile */
+            }
         }
-        .loading-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    transition: opacity 0.5s ease;
-}
-.loading-overlay.hidden {
-    opacity: 0;
-    pointer-events: none;
-}
-.main-content {
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-.main-content.loaded {
-    opacity: 1;
-}
-.logo {
-    z-index: 10000;
-}
-header {
-    z-index: 10001;
-}
+
+        @media (max-width: 480px) {
+            .loading-overlay .logo {
+                font-size: 24px; /* Even smaller for very small screens */
+            }
+        }
     </style>
 </head>
 <body>
     <div class="loading-overlay">
-    <div class="logo">Rayfitout</div>
-</div>
-    <header>
-        <div class="container header-content">
-            <div class="logo">Rayfitout</div>
-            <button class="menu-toggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
-            <nav>
-                <ul>
-                    <li>Projects</li>
-                    <li>Services</li>
-                    <li>Systems</li>
-                    <li>Products</li>
-                    <li>About</li>
-                    <li>Contact</li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+        <div class="logo">Rayfitout</div>
+    </div>
+    <div class="main-content">
+        <header>
+            <div class="container header-content">
+                <div class="logo">Rayfitout</div>
+                <button class="menu-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <nav>
+                    <ul>
+                        <li>Projects</li>
+                        <li>Services</li>
+                        <li>Systems</li>
+                        <li>Products</li>
+                        <li>About</li>
+                        <li>Contact</li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
 
-    <section class="hero animate-on-scroll">
-        <div class="hero-text">
-            <h3>SERVICES / ALUMINIUM SYSTEMS</h3>
-            <h1>ALUMINUM SYSTEMS</h1>
-            <p>CONTEMPORARY SYSTEMS, SEAMLESS INTEGRATION</p>
-        </div>
-    </section>
+        <section class="hero animate-on-scroll">
+            <div class="hero-text">
+                <h3>SERVICES / ALUMINIUM SYSTEMS</h3>
+                <h1>ALUMINUM SYSTEMS</h1>
+                <p>CONTEMPORARY SYSTEMS, SEAMLESS INTEGRATION</p>
+            </div>
+        </section>
 
-    <section class="description animate-on-scroll">
-        <div class="container">
-            <p>Our aluminum joinery collection is designed not merely as functional elements, but as architectural statements. Every door, partition, and wardrobe system reflects a deliberate interplay of proportion, material, and technology—where nothing is exposed, yet everything is experienced. Our aluminum joinery collection is designed not merely as functional elements, but as architectural statements. Every door, partition, and wardrobe system reflects a deliberate interplay of proportion, material, and technology—where nothing is exposed, yet everything is experienced. Our aluminum joinery collection is designed not merely as functional elements, but as architectural statements. Every door, partition, and wardrobe system reflects a deliberate interplay of proportion, material, and technology—where nothing is exposed, yet everything is experienced.</p>
-        </div>
-    </section>
-    <div class="divider"></div>
-    <section class="systems animate-on-scroll">
-        <div class="container">
-            <h2>OUR ALUMINIUM SYSTEMS</h2>
-            <p>Expert craftsmanship in aluminium systems, offering fit your unique space.</p>
-            <div class="systems-grid">
-                <div class="system-item image-1">
-                    <img src="assets\images\door.jpg" alt="Doors">
-                    <h3>Doors</h3>
-                </div>
-                <div class="system-item image-2">
-                    <img src="assets\images\windows.png" alt="Windows">
-                    <h3>Windows</h3>
-                </div>
-                <div class="system-item image-3">
-                    <img src="assets\images\partiotions.png" alt="Partitions">
-                    <h3>Partitions</h3>
-                </div>
-                <div class="system-item image-4">
-                    <img src="assets\images\pergolas.png" alt="Pergolas">
-                    <h3>Pergolas</h3>
-                </div>
-                <div class="system-item image-5">
-                    <img src="assets\images\bullet.png" alt="Bullet Resistant Windows">
-                    <h3>Bullet Resistant Windows</h3>
-                </div>
-                <div class="system-item image-6">
-                    <img src="assets\images\curtain.png" alt="Curtain Walls & Facades">
-                    <h3>Curtain Walls & Facades</h3>
-                </div>
+        <section class="description animate-on-scroll">
+            <div class="container">
+                <p>Our aluminum joinery collection is designed not merely as functional elements, but as architectural statements. Every door, partition, and wardrobe system reflects a deliberate interplay of proportion, material, and technology—where nothing is exposed, yet everything is experienced. Our aluminum joinery collection is designed not merely as functional elements, but as architectural statements. Every door, partition, and wardrobe system reflects a deliberate interplay of proportion, material, and technology—where nothing is exposed, yet everything is experienced. Our aluminum joinery collection is designed not merely as functional elements, but as architectural statements. Every door, partition, and wardrobe system reflects a deliberate interplay of proportion, material, and technology—where nothing is exposed, yet everything is experienced.</p>
             </div>
-        </div>
-    </section>
-    <div class="divider"></div>
-    <section class="features animate-on-scroll">
-        <div class="container">
-            <div class="feature-item">
-                <img src="https://placehold.co/400x300?text=Modern+Profiles" alt="Modern Profiles">
-                <h3>modern profiles</h3>
-            </div>
-            <div class="feature-item">
-                <img src="https://placehold.co/400x300?text=Integration" alt="Integration">
-                <h3>integration</h3>
-            </div>
-            <div class="feature-item">
-                <img src="https://placehold.co/400x300?text=Modularity" alt="Modularity">
-                <h3>modularity</h3>
-            </div>
-        </div>
-    </section>
-
-    <section class="about animate-on-scroll">
-        <div class="container">
-            <h2>About Our Products & Services</h2>
-            <div class="about-grid">
-                <div class="about-item">
-                    <h3>Complimentary Installation</h3>
-                    <p>We offer complimentary professional installation by our in-house technicians to ensure flawless execution on every project.</p>
-                </div>
-                <div class="about-item">
-                    <h3>Made-to-Measure Architecture</h3>
-                    <p>Every system is precisely fabricated to its environment. No gaps, no compromises—only bespoke precision.</p>
-                </div>
-                <div class="about-item">
-                    <h3>Patented Designs</h3>
-                    <p>Our systems are designed to be embedded in the architecture—not added onto it. They align perfectly with joinery, wall cladding, and interior finishes.</p>
+        </section>
+        <div class="divider"></div>
+        <section class="systems animate-on-scroll">
+            <div class="container">
+                <h2>OUR ALUMINIUM SYSTEMS</h2>
+                <p>Expert craftsmanship in aluminium systems, offering fit your unique space.</p>
+                <div class="systems-grid">
+                    <div class="system-item image-1">
+                        <img src="assets/images/door.jpg" alt="Doors">
+                        <h3>Doors</h3>
+                    </div>
+                    <div class="system-item image-2">
+                        <img src="assets/images/windows.png" alt="Windows">
+                        <h3>Windows</h3>
+                    </div>
+                    <div class="system-item image-3">
+                        <img src="assets/images/partiotions.png" alt="Partitions">
+                        <h3>Partitions</h3>
+                    </div>
+                    <div class="system-item image-4">
+                        <img src="assets/images/pergolas.png" alt="Pergolas">
+                        <h3>Pergolas</h3>
+                    </div>
+                    <div class="system-item image-5">
+                        <img src="assets/images/bullet.png" alt="Bullet Resistant Windows">
+                        <h3>Bullet Resistant Windows</h3>
+                    </div>
+                    <div class="system-item image-6">
+                        <img src="assets/images/curtain.png" alt="Curtain Walls & Facades">
+                        <h3>Curtain Walls & Facades</h3>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section class="bespoke animate-on-scroll">
-        <div class="container">
-            <h2>BESPOKE SYSTEMS,<br>CUSTOM MADE FOR YOUR SPACE</h2>
-            <button>DROP AN INQUIRY</button>
-        </div>
-    </section>
-
-    <section class="images-row animate-on-scroll">
-        <div class="container">
-            <img src="https://placehold.co/600x400?text=Aluminum+Image+1" alt="Aluminum Image 1">
-            <img src="https://placehold.co/600x400?text=Aluminum+Image+2" alt="Aluminum Image 2">
-        </div>
-    </section>
-
-    <section class="recyclable animate-on-scroll">
-        <div class="recyclable-text container">
-            <h2>Unlike plastics, it is 100% recyclable. Moreover, approximately 70% of the aluminum produced from 1988 is still in use.</h2>
-        </div>
-        <img src="https://placehold.co/600x400?text=Recycling+Image" alt="Recycling Image">
-    </section>
-
-    <section class="view-projects animate-on-scroll">
-        <a href="#">VIEW PROJECTS →</a>
-    </section>
-
-    <section class="cta animate-on-scroll">
-        <div class="container">
-            <h2>HAVE A PROJECT IN MIND ?</h2>
-            <button>DROP AN INQUIRY →</button>
-        </div>
-    </section>
-
-    <section class="faq animate-on-scroll">
-        <div class="container">
-            <h2>FREQUENTLY ASKED QUESTIONS</h2>
-            <div class="faq-item">
-                <h3>What is interior fit out?</h3>
-                <p>Interior fit out is the process of modifying a bare shell of a structure into a functional space. This typically involves: installing partition walls, flooring, ceiling, fittings and furniture fixtures.</p>
-            </div>
-            <div class="faq-item">
-                <h3>What do interior fit out companies in Dubai do?</h3>
-                <p>[Content here]</p>
-            </div>
-            <div class="faq-item">
-                <h3>How long does an interior fit out typically take?</h3>
-                <p>[Content here]</p>
-            </div>
-            <div class="faq-item">
-                <h3>What is the scope of the interior fit out?</h3>
-                <p>[Content here]</p>
-            </div>
-            <div class="faq-item">
-                <h3>How much does an interior fit out cost?</h3>
-                <p>[Content here]</p>
-            </div>
-            <div class="faq-item">
-                <h3>What countries does Rayfitout operate in?</h3>
-                <p>[Content here]</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="other-services animate-on-scroll">
-        <div class="container">
-            <h2>OTHER SERVICES</h2>
-            <div class="services-grid">
-                <div class="service-item">
-                    <img src="https://placehold.co/400x300?text=Interior+Fit+Out" alt="Interior Fit Out">
-                    <h3>INTERIOR FIT OUT</h3>
+        </section>
+        <div class="divider"></div>
+        <section class="features animate-on-scroll">
+            <div class="container">
+                <div class="feature-item">
+                    <img src="https://placehold.co/400x300?text=Modern+Profiles" alt="Modern Profiles">
+                    <h3>modern profiles</h3>
                 </div>
-                <div class="service-item">
-                    <img src="https://placehold.co/400x300?text=Interior+Design" alt="Interior Design">
-                    <h3>INTERIOR DESIGN</h3>
+                <div class="feature-item">
+                    <img src="https://placehold.co/400x300?text=Integration" alt="Integration">
+                    <h3>integration</h3>
                 </div>
-                <div class="service-item">
-                    <img src="https://placehold.co/400x300?text=Architecture+Design" alt="Architecture Design">
-                    <h3>ARCHITECTURE DESIGN</h3>
+                <div class="feature-item">
+                    <img src="https://placehold.co/400x300?text=Modularity" alt="Modularity">
+                    <h3>modularity</h3>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="footer-cta animate-on-scroll">
-        <div class="container">
-            <h2>IDEAS COME TO LIFE<br>WITH CONVERSATION.</h2>
-            <p>INFO@RAYFITOUT.COM</p>
-            <button>DROP AN INQUIRY</button>
-        </div>
-    </section>
+        <section class="about animate-on-scroll">
+            <div class="container">
+                <h2>About Our Products & Services</h2>
+                <div class="about-grid">
+                    <div class="about-item">
+                        <h3>Complimentary Installation</h3>
+                        <p>We offer complimentary professional installation by our in-house technicians to ensure flawless execution on every project.</p>
+                    </div>
+                    <div class="about-item">
+                        <h3>Made-to-Measure Architecture</h3>
+                        <p>Every system is precisely fabricated to its environment. No gaps, no compromises—only bespoke precision.</p>
+                    </div>
+                    <div class="about-item">
+                        <h3>Patented Designs</h3>
+                        <p>Our systems are designed to be embedded in the architecture—not added onto it. They align perfectly with joinery, wall cladding, and interior finishes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <section class="locations">
-        <div class="location">
-            <h4>DUBAI, UAE</h4>
-            <p>23, ST 35,AL QUSAIS 5<br>DUBAI, UAE<br>+971 800 729 43</p>
-        </div>
-        <div class="location">
-            <h4>RIYADH, SAUDI ARABIA</h4>
-            <p>LEVEL 6, GATE D, AL AKARIA PLAZA, RIYADH SAUDI ARABIA.<br>+ 966 800 891 2050</p>
-        </div>
-        <div class="location">
-            <h4>NAIROBI, KENYA</h4>
-            <p>OFFICE 2504, BRITAM TOWER, HOSPITAL HILL ROAD, UPPERHILL, KENYA<br>+254 2076 40228</p>
-        </div>
-    </section>
+        <section class="bespoke animate-on-scroll">
+            <div class="container">
+                <h2>BESPOKE SYSTEMS,<br>CUSTOM MADE FOR YOUR SPACE</h2>
+                <button>DROP AN INQUIRY</button>
+            </div>
+        </section>
 
-    <section class="inquiries">
-        <div class="inquiry">
-            <h4>BUSINESS INQUIRIES</h4>
-            <p>INFO@RAYFITOUT.COM</p>
-        </div>
-        <div class="inquiry">
-            <h4>CAREER</h4>
-            <p>HR@RAYFITOUT.COM</p>
-        </div>
-        <div class="inquiry">
-            <h4>SUPPLIERS</h4>
-            <p>PROCUREMENT@RAYFITOUT.COM</p>
-        </div>
-    </section>
+        <section class="images-row animate-on-scroll">
+            <div class="container">
+                <img src="https://placehold.co/600x400?text=Aluminum+Image+1" alt="Aluminum Image 1">
+                <img src="https://placehold.co/600x400?text=Aluminum+Image+2" alt="Aluminum Image 2">
+            </div>
+        </section>
 
-    <footer>
-        <p>PRIVACY POLICY<br>© 2025 RAYFITOUT</p>
-        <div class="social">
-            <a href="#">YOUTUBE</a>
-            <a href="#">PINTEREST</a>
-        </div>
-    </footer>
+        <section class="recyclable animate-on-scroll">
+            <div class="recyclable-text container">
+                <h2>Unlike plastics, it is 100% recyclable. Moreover, approximately 70% of the aluminum produced from 1988 is still in use.</h2>
+            </div>
+            <img src="https://placehold.co/600x400?text=Recycling+Image" alt="Recycling Image">
+        </section>
 
-   <script>
-    const elements = document.querySelectorAll('.animate-on-scroll');
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            } else {
-                entry.target.classList.remove('visible');
-            }
+        <section class="view-projects animate-on-scroll">
+            <a href="#">VIEW PROJECTS →</a>
+        </section>
+
+        <section class="cta animate-on-scroll">
+            <div class="container">
+                <h2>HAVE A PROJECT IN MIND ?</h2>
+                <button>DROP AN INQUIRY →</button>
+            </div>
+        </section>
+
+        <section class="faq animate-on-scroll">
+            <div class="container">
+                <h2>FREQUENTLY ASKED QUESTIONS</h2>
+                <div class="faq-item">
+                    <h3>What is interior fit out?</h3>
+                    <p>Interior fit out is the process of modifying a bare shell of a structure into a functional space. This typically involves: installing partition walls, flooring, ceiling, fittings and furniture fixtures.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What do interior fit out companies in Dubai do?</h3>
+                    <p>[Content here]</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How long does an interior fit out typically take?</h3>
+                    <p>[Content here]</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What is the scope of the interior fit out?</h3>
+                    <p>[Content here]</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How much does an interior fit out cost?</h3>
+                    <p>[Content here]</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What countries does Rayfitout operate in?</h3>
+                    <p>[Content here]</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="other-services animate-on-scroll">
+            <div class="container">
+                <h2>OTHER SERVICES</h2>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <img src="https://placehold.co/400x300?text=Interior+Fit+Out" alt="Interior Fit Out">
+                        <h3>INTERIOR FIT OUT</h3>
+                    </div>
+                    <div class="service-item">
+                        <img src="https://placehold.co/400x300?text=Interior+Design" alt="Interior Design">
+                        <h3>INTERIOR DESIGN</h3>
+                    </div>
+                    <div class="service-item">
+                        <img src="https://placehold.co/400x300?text=Architecture+Design" alt="Architecture Design">
+                        <h3>ARCHITECTURE DESIGN</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="footer-cta animate-on-scroll">
+            <div class="container">
+                <h2>IDEAS COME TO LIFE<br>WITH CONVERSATION.</h2>
+                <p>INFO@RAYFITOUT.COM</p>
+                <button>DROP AN INQUIRY</button>
+            </div>
+        </section>
+
+        <section class="locations">
+            <div class="location">
+                <h4>DUBAI, UAE</h4>
+                <p>23, ST 35,AL QUSAIS 5<br>DUBAI, UAE<br>+971 800 729 43</p>
+            </div>
+            <div class="location">
+                <h4>RIYADH, SAUDI ARABIA</h4>
+                <p>LEVEL 6, GATE D, AL AKARIA PLAZA, RIYADH SAUDI ARABIA.<br>+ 966 800 891 2050</p>
+            </div>
+            <div class="location">
+                <h4>NAIROBI, KENYA</h4>
+                <p>OFFICE 2504, BRITAM TOWER, HOSPITAL HILL ROAD, UPPERHILL, KENYA<br>+254 2076 40228</p>
+            </div>
+        </section>
+
+        <section class="inquiries">
+            <div class="inquiry">
+                <h4>BUSINESS INQUIRIES</h4>
+                <p>INFO@RAYFITOUT.COM</p>
+            </div>
+            <div class="inquiry">
+                <h4>CAREER</h4>
+                <p>HR@RAYFITOUT.COM</p>
+            </div>
+            <div class="inquiry">
+                <h4>SUPPLIERS</h4>
+                <p>PROCUREMENT@RAYFITOUT.COM</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>PRIVACY POLICY<br>© 2025 RAYFITOUT</p>
+            <div class="social">
+                <a href="#">YOUTUBE</a>
+                <a href="#">PINTEREST</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const elements = document.querySelectorAll('.animate-on-scroll');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                } else {
+                    entry.target.classList.remove('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        elements.forEach(el => observer.observe(el));
+
+        const faqHeaders = document.querySelectorAll('.faq-item h3');
+        faqHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                content.style.display = content.style.display === 'block' ? 'none' : 'block';
+            });
         });
-    }, { threshold: 0.1 });
-    elements.forEach(el => observer.observe(el));
 
-    const faqHeaders = document.querySelectorAll('.faq-item h3');
-    faqHeaders.forEach(header => {
-        header.addEventListener('click', () => {
-            const content = header.nextElementSibling;
-            content.style.display = content.style.display === 'block' ? 'none' : 'block';
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('nav');
+
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            menuToggle.classList.toggle('active');
         });
-    });
 
-    const menuToggle = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('nav');
+        document.addEventListener('DOMContentLoaded', () => {
+            const images = document.querySelectorAll('img');
+            let loadedImages = 0;
+            const totalImages = images.length;
+            const loadingOverlay = document.querySelector('.loading-overlay');
+            const mainContent = document.querySelector('.main-content');
 
-    menuToggle.addEventListener('click', () => {
-        nav.classList.toggle('active');
-        menuToggle.classList.toggle('active');
-    });
-
-    document.addEventListener('DOMContentLoaded', () => {
-    const images = document.querySelectorAll('img');
-    let loadedImages = 0;
-    const totalImages = images.length;
-    const loadingOverlay = document.querySelector('.loading-overlay');
-    const mainContent = document.querySelector('.main-content');
-
-    if (totalImages === 0) {
-        loadingOverlay.classList.add('hidden');
-        mainContent.classList.add('loaded');
-        return;
-    }
-
-    images.forEach(img => {
-        img.addEventListener('load', () => {
-            loadedImages++;
-            if (loadedImages === totalImages) {
+            if (totalImages === 0) {
                 loadingOverlay.classList.add('hidden');
                 mainContent.classList.add('loaded');
+                return;
             }
+
+            images.forEach(img => {
+                img.addEventListener('load', () => {
+                    loadedImages++;
+                    if (loadedImages === totalImages) {
+                        loadingOverlay.classList.add('hidden');
+                        mainContent.classList.add('loaded');
+                    }
+                });
+                img.addEventListener('error', () => {
+                    loadedImages++;
+                    if (loadedImages === totalImages) {
+                        loadingOverlay.classList.add('hidden');
+                        mainContent.classList.add('loaded');
+                    }
+                });
+            });
         });
-        img.addEventListener('error', () => {
-            loadedImages++;
-            if (loadedImages === totalImages) {
-                loadingOverlay.classList.add('hidden');
-                mainContent.classList.add('loaded');
-            }
-        });
-    });
-});
-</script>
-    
+    </script>
 </body>
 </html>
